@@ -1,5 +1,5 @@
 import { Account, Avatars, Client, OAuthProvider } from 'react-native-appwrite'
-import {openAuthSessionAsync} from 'expo-web-browser'
+import { openAuthSessionAsync } from 'expo-web-browser'
 import * as Linking from 'expo-linking'
 
 export const config = {
@@ -33,7 +33,7 @@ export async function login() {
         const userId = url.searchParams.get('userId')?.toString();
         if (!secret || !userId) throw new Error('Failed to login');
         const session = await account.createSession(userId, secret);
-        if(!session) throw new Error('Failed to create a session');
+        if (!session) throw new Error('Failed to create a session');
         return true
     } catch (error) {
         console.error(error)
@@ -48,10 +48,10 @@ export async function logout() {
     } catch (error) {
         console.error(error);
         return false
-    }    
+    }
 }
 
-export async function getUserInfo() {
+export async function getCurrentUser() {
     try {
         const response = await account.get()
         if (response.$id) {
@@ -64,7 +64,5 @@ export async function getUserInfo() {
 
     } catch (error) {
         console.error(error)
-        
     }
-    
 }
