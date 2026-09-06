@@ -1,4 +1,4 @@
-import { Account, Avatars, Client, OAuthProvider } from 'react-native-appwrite'
+import { Account, Avatars, Client, OAuthProvider } from 'appwrite'
 import { openAuthSessionAsync } from 'expo-web-browser'
 import * as Linking from 'expo-linking'
 
@@ -13,7 +13,12 @@ export const client = new Client()
 client
     .setEndpoint(config.endpoint!)
     .setProject(config.projectId!)
-    .setPlatform(config.platform)
+
+// `setPlatform` isn't present on the Client type in some SDK versions.
+// Call it defensively at runtime if the method exists to avoid TypeScript errors.
+if (typeof (client as any).setPlatform === 'function') {
+    (client as any).setPlatform(config.platform)
+}
 
 export const avatar = new Avatars(client)
 export const account = new Account(client)

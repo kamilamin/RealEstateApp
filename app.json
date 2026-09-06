@@ -7,21 +7,25 @@
     "icon": "./assets/images/icon.png",
     "scheme": "realestateapp",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.kamil.realestateapp"
     },
+
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
       }
     },
+
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
+
     "plugins": [
       "expo-router",
       [
@@ -45,8 +49,12 @@
             "./assets/fonts/Rubik-SemiBold.ttf"
           ]
         }
-      ]
+      ],
+      "expo-asset",
+      "expo-status-bar",
+      "expo-web-browser"
     ],
+
     "experiments": {
       "typedRoutes": true
     }
