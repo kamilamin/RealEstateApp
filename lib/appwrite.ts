@@ -5,7 +5,12 @@ import * as Linking from 'expo-linking'
 export const config = {
     platform: 'com.kamil.realestateapp',
     endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT,
-    projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID
+    projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID,
+    databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID,
+    agentsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_COLLECTION_AGENTS_ID,
+    galleriesCollectionId: process.env.EXPO_PUBLIC_APPWRITE_COLLECTION_GALLERIES_ID,
+    reviewsCollectionId: process.env.EXPO_PUBLIC_APPWRITE_COLLECTION_REVIEWS_ID,
+    propertiesCollectionId: process.env.EXPO_PUBLIC_APPWRITE_COLLECTION_PROPERTIES_ID
 }
 
 export const client = new Client()
